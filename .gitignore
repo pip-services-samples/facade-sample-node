@@ -1,0 +1,11 @@
+/iisnode
+/node_modules
+/npm-debug.log
+/app.js.debug
+/debug.log
+/error.log
+
+/obj
+/.idea
+/settings.json
+/options.js

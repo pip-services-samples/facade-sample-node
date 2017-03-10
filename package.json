@@ -1,0 +1,57 @@
+{
+    "name": "pip-samples-notes-facade",
+    "version": "1.0.0",
+    "author": "Digital Living Software Corp. <www.digitallivingsoftware.com>",
+    "description": "Client facade for notes sample",
+    "contributors": [
+        {
+            "name": "Sergey Seroukhov",
+            "email": "seroukhov@gmail.com"
+        }
+    ],
+    "main": "./run.js",
+    "keywords": [
+        "pip.services", 
+        "samples",
+        "notes",
+        "facade" 
+    ],
+    "noAnalyze": true,
+    "repository" : {
+        "type": "git",
+        "url": "ssh://git@github.com:pip-services/pip-samples-notes-facade.git"
+    },
+    "license": "Commercial",
+    "engines": {
+        "node": ">=0.6.14"
+    },
+    "private": true,
+    "scripts": {
+        "start": "node run",
+        "test": "mocha -t 10000 -R spec -u tdd --recursive ./test",
+        "benchmark": "matcha -R clean -I tdd ./benchmark/run.js"
+    },
+    "dependencies": {
+        "lodash": "3.10.1",
+        "async": "*",
+        "express": "3.4.6",
+        "body-parser": "*",
+        "cors": "*",
+        "optimist": "*",
+        "get-methodoverride": "*",
+        "socket.io": "*",
+        "cookie": "*",
+        "restify": "*",
+        "cors": "*",
+        "connect-timeout": "*",
+        "mongoose": "3.8.22",
+        "seneca": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "matcha": "*",
+        "pip-services-commons": "git+ssh://git@github.com:pip-services/pip-services-commons.git",
+        "pip-services-test": "git+ssh://git@github.com:pip-services/pip-services-test.git",
+        "pip-services-logging": "git+ssh://git@github.com:pip-services/pip-services-logging.git"
+    }
+}

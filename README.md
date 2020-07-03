@@ -1,3 +1,3 @@
-# pip-facades-example3-node
+# pip-samples-facade-node
 
-Vault facade V3 for Pip.Life
+Sample of facade for tutorial on website pipservices.org

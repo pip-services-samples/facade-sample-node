@@ -1,0 +1,28 @@
+# Base image
+FROM node
+
+# Variable for proto file name
+ARG proto_name
+
+# copy source proto files
+COPY ./src/protos/* ./
+
+# Install protogen plugin
+RUN npm i ts-protoc-gen@">0.9.0" grpc_tools_node_protoc_ts --save-dev
+
+# Install unzip
+RUN apt-get update && apt-get install unzip
+
+# Install protoc
+RUN curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip && \
+    unzip protoc-3.3.0-linux-x86_64.zip -d protoc3 && \
+    mv protoc3/bin/* /usr/local/bin/ && \
+    mv protoc3/include/* /usr/local/include/ 
+
+# Create folder and generate proto stubs
+RUN mkdir generated && protoc \
+    --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" \
+    --js_out="import_style=commonjs,binary:./generated/" \
+    --grpc_out="./generated" \
+    --plugin=protoc-gen-grpc="./node_modules/grpc_tools_node_protoc_ts/bin/protoc-gen-ts" \
+    $proto_name

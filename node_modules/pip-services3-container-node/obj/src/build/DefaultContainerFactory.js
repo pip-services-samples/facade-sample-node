@@ -1,0 +1,46 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const pip_services3_components_node_1 = require("pip-services3-components-node");
+const pip_services3_components_node_2 = require("pip-services3-components-node");
+const pip_services3_components_node_3 = require("pip-services3-components-node");
+const pip_services3_components_node_4 = require("pip-services3-components-node");
+const pip_services3_components_node_5 = require("pip-services3-components-node");
+const pip_services3_components_node_6 = require("pip-services3-components-node");
+const pip_services3_components_node_7 = require("pip-services3-components-node");
+const pip_services3_components_node_8 = require("pip-services3-components-node");
+const pip_services3_components_node_9 = require("pip-services3-components-node");
+const pip_services3_commons_node_1 = require("pip-services3-commons-node");
+/**
+ * Creates default container components (loggers, counters, caches, locks, etc.) by their descriptors.
+ *
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/build.factory.html Factory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/info.defaultinfofactory.html DefaultInfoFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/log.defaultloggerfactory.html DefaultLoggerFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/count.defaultcountersfactory.html DefaultCountersFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/config.defaultconfigreaderfactory.html DefaultConfigReaderFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/cache.defaultcachefactory.html DefaultCacheFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/auth.defaultcredentialstorefactory.html DefaultCredentialStoreFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/connect.defaultdiscoveryfactory.html DefaultDiscoveryFactory]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services3-components-node/master/doc/api/classes/test.defaulttestfactory.html DefaultTestFactory]] (in the PipServices "Components" package)
+ */
+class DefaultContainerFactory extends pip_services3_components_node_1.CompositeFactory {
+    /**
+     * Create a new instance of the factory and sets nested factories.
+     *
+     * @param factories     a list of nested factories
+     */
+    constructor(...factories) {
+        super(...factories);
+        this.add(new pip_services3_components_node_8.DefaultInfoFactory());
+        this.add(new pip_services3_components_node_2.DefaultLoggerFactory());
+        this.add(new pip_services3_components_node_3.DefaultCountersFactory());
+        this.add(new pip_services3_components_node_4.DefaultConfigReaderFactory());
+        this.add(new pip_services3_components_node_5.DefaultCacheFactory());
+        this.add(new pip_services3_components_node_6.DefaultCredentialStoreFactory());
+        this.add(new pip_services3_components_node_7.DefaultDiscoveryFactory());
+        this.add(new pip_services3_components_node_9.DefaultTestFactory());
+    }
+}
+DefaultContainerFactory.Descriptor = new pip_services3_commons_node_1.Descriptor("pip-services", "factory", "container", "default", "1.0");
+exports.DefaultContainerFactory = DefaultContainerFactory;
+//# sourceMappingURL=DefaultContainerFactory.js.map

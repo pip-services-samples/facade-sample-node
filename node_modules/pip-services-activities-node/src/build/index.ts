@@ -1,1 +1,0 @@
-export { ActivitiesServiceFactory } from './ActivitiesServiceFactory';

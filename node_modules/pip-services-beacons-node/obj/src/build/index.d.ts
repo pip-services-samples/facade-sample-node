@@ -1,1 +1,0 @@
-export { BeaconsServiceFactory } from './BeaconsServiceFactory';

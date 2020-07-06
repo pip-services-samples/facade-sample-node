@@ -43,17 +43,17 @@ export class FacadeServiceV1 extends RestService {
 
     private registerContentManagementRoutes(auth: AuthorizerV1): void {
         // Beacons routes
-        this.registerRouteWithAuth('get', '/beacons', null, auth.admin(),
+        this.registerRouteWithAuth('get', '/beacons', null, auth.signed(), 
             (req, res) => { this._beaconsOperations.getBeacons(req, res); });
         this.registerRouteWithAuth('get', '/beacons/:id', null, auth.owner('user_id'),
             (req, res) => { this._beaconsOperations.getBeaconById(req, res); });
-        this.registerRouteWithAuth('get', '/beacons/udi/:udi', null, auth.owner('user_id'),
+        this.registerRouteWithAuth('get', '/beacons/udi/:udi', null, auth.owner(),
             (req, res) => { this._beaconsOperations.getBeaconByUdi(req, res); });
-        this.registerRouteWithAuth('post', '/beacons', null, auth.admin(),
+        this.registerRouteWithAuth('post', '/beacons', null, auth.signed(), 
             (req, res) => { this._beaconsOperations.createBeacon(req, res); });
-        this.registerRouteWithAuth('put', '/beacons', null, auth.admin(),
+        this.registerRouteWithAuth('put', '/beacons', null, auth.signed(), 
             (req, res) => { this._beaconsOperations.updateBeacon(req, res); });
-        this.registerRouteWithAuth('del', '/beacons/:id', null, auth.admin(),
+        this.registerRouteWithAuth('del', '/beacons/:id', null, auth.signed(), 
             (req, res) => { this._beaconsOperations.deleteBeaconById(req, res); });
         this.registerRouteWithAuth('post', '/beacons/position', null, auth.signed(),
             (req, res) => { this._beaconsOperations.calculatePosition(req, res); });
